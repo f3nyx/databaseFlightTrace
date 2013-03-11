@@ -1,0 +1,214 @@
+% resume.tex
+% vim:set ft=tex spell:
+
+\documentclass[10pt,letterpaper]{article}
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{tgpagella}
+\pagestyle{empty}
+\setlength{\tabcolsep}{0em}
+
+% indentsection style, used for sections that aren't already in lists
+% that need indentation to the level of all text in the document
+\newenvironment{indentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% opposite of above; bump a section back toward the left margin
+\newenvironment{unindentsection}[1]%
+{\begin{list}{}%
+	{\setlength{\leftmargin}{-0.5#1}}%
+	\item[]%
+}
+{\end{list}}
+
+% format two pieces of text, one left aligned and one right aligned
+\newcommand{\headerrow}[2]
+{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+	#1 &
+	#2 \\
+\end{tabular*}}
+
+% make "C++" look pretty when used in text by touching up the plus signs
+\newcommand{\CPP}
+{C\nolinebreak[4]\hspace{-.05em}\raisebox{.22ex}{\footnotesize\bf ++}}
+
+% and the actual content starts here
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Base de Datos de Flight Trace}}
+
+999 E Wacker Drive\ \ \textbullet
+\ \ Oficina\ 1001\ \ \textbullet
+\ \ Santiago, 2013
+\\
+(999) 999-9999\ \ \textbullet
+\ \ test@example.com
+\end{center}
+
+\hrule
+\vspace{-0.4em}
+
+\subsection*{Vuelo}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{vuelo}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de vuelo}}
+		{\emph{03/03/2013}}
+	\begin{enumerate}
+		\item Es uno o más tramos que recorre un avión, entre dos o más aeropuertos.
+		\item Un vuelo debe tener un aeropuerto de salida y un aeropuerto de arribo.
+		\item No existen dos vuelos iguales.
+		\item Para iniciar un vuelo se necesita, un avión disponible, una tripulación disponible, compuesta por una tripulación de vuelo (flight crew) y una tripulación de cabina (cabin crew).
+		\item Debe tener una ruta disponible.
+		\item Puede o no, tener pasajeros, si no tiene, se denomina vuelo Ferry.
+		\item Puede o no, llevar carga o correo.
+		\item Un vuelo debe tener una fecha con hora de inicio y una fecha con hora de llegada.
+		\item Cuando el vuelo termina se produce un Resumen de Vuelo.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Aeropuerto}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{aeropuerto}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de aeropuerto}}
+		{\emph{03/03/2013}}
+	\begin{enumerate}
+		\item Lugar al cual llegan o salen aviones.
+		\item Puede o no tener una base de la empresa.
+		\item Si no hay una base de la empresa, puede o no existir handling de terceros: si existe, entonces se contratan los servicios externos de "handling" (servicios handling de terceros), lo que tiene un costo asociado; si no existe, se lleva personal en el vuelo al destino.
+		\item Tiene un nombre.
+		\item Tiene un código IATA (International Air Transport Association).
+		\item Tiene un código ICAO (International Civil Aviation Organization).
+		\item Tiene un País, Ciudad, Región (Comuna).
+		\item Tiene una Calle y Numero.
+		\item Tiene una casilla de correos.
+		\item Tiene uno o mas teléfonos.
+		\item Tiene uno o mas Fax.
+		\item Tiene uno o mas e-mail.
+		\item Tiene un sito web.
+		\item Puede o no tener Policía Internacional disponible, Servicio de Aduana disponible y Seguridad Aeroportuaria disponible.
+		\item Tiene una Taza de Embarque.
+		\item Tiene un horario de atención.
+		\item Tiene una o mas Pistas.
+		\item Tiene un tipo de categoría de operación de aeropuerto.
+		\item Tiene una categoría SEI (Servicio de Extinción de Incendios).
+		\item Tiene Coordenadas GPS asociadas.
+		\item Tiene restricciones.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Avión}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{avión}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de avión}}
+		{\emph{07/03/2013}}
+	\begin{enumerate}
+		\item Es un medio de transporte que lleva a pasajeros y tripulación, desde un Aeropuerto a otro.
+		\item Tiene un estado de disponible o no disponible.
+		\item Tiene un registro (matricula).
+		\item Tiene un versión (ejemplo 3/4).
+		\item Tiene una configuración (cantidad de pasajeros).
+		\item Tiene un peso máximo Taxi Weight.
+		\item Tiene un peso máximo Takeoff Weight.
+		\item Tiene un peso máximo Landing Weight.
+		\item Tiene un peso máximo Zero Fuel Weight.
+		\item Tiene un peso máximo Payload.
+		\item Tiene un peso máximo Seating Capacity.
+		\item Tiene una capacidad máxima Cargo Volume.
+		\item Tiene una capacidad máxima Cargo Weight.
+		\item Tiene un máximo de capacidad de combustible.
+		\item Tiene un mínimo de combustible para operación en tierra.
+		\item Tiene un Basic Weight.
+		\item Tiene un peso de Items Operacionales.
+		\item Tiene un Dry Operating Weight.		
+		\item Tiene un Dry Operating Index.
+		\item Tiene un máximo Range.
+		\item Tiene un máximo Tiempo de Vuelo.
+		\item Tiene un máximo Service Ceilling.
+		\item Tiene una cantidad de motores.
+		\item Tiene un máximo Thrust.		
+		\item Tiene un máximo Speed.
+		\item Tiene una Velocidad de Crucero.
+		
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Ruta}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{ruta}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de r}}
+		{\emph{07/03/2013}}
+	\begin{enumerate}
+		\item El tramo que recorre un avión desde que Sale (Departure), hasta que Arriba a destino (Arrival).
+		\item Debe tener dos o más aeropuertos.
+		\item Esta compuesto por una ruta aérea preestablecida.
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Molde(Tabla inexistente)}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{titulo}}
+		{\textbf{Lugar de desarrollo}}
+	\\
+	\headerrow
+		{\emph{eslogan del titulo}}
+		{\emph{Fecha}}
+	\begin{enumerate}
+		\item Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+		diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+		erat volutpat.
+	\end{enumerate}
+
+\end{itemize}
+
+\end{document}
