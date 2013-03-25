@@ -79,6 +79,7 @@
 		\item Puede o no, llevar carga o correo.
 		\item Un vuelo debe tener una fecha con hora de inicio y una fecha con hora de llegada.
 		\item Cuando el vuelo termina se produce un Resumen de Vuelo.
+		\item Un solo vuelo puede tener más de una Ruta, esto quiere decir que hay pasajeros que se bajan en aeropuertos intermedios.
 	\end{enumerate}
 
 \end{itemize}
@@ -117,7 +118,7 @@
 		\item Tiene un tipo de categoría de operación de aeropuerto.
 		\item Tiene una categoría SEI (Servicio de Extinción de Incendios).
 		\item Tiene Coordenadas GPS asociadas.
-		\item Tiene restricciones.
+		\item Tiene Restricciones.
 	\end{enumerate}
 
 \end{itemize}
@@ -146,7 +147,7 @@
 		\item Tiene un peso máximo Landing Weight.
 		\item Tiene un peso máximo Zero Fuel Weight.
 		\item Tiene un peso máximo Payload.
-		\item Tiene un peso máximo Seating Capacity.
+		\item Tiene un máximo Seating Capacity.
 		\item Tiene una capacidad máxima Cargo Volume.
 		\item Tiene una capacidad máxima Cargo Weight.
 		\item Tiene un máximo de capacidad de combustible.
@@ -162,11 +163,133 @@
 		\item Tiene un máximo Thrust.		
 		\item Tiene un máximo Speed.
 		\item Tiene una Velocidad de Crucero.
-		
+		\item Tiene una o más Cabinas.
+		\item Tiene una o más Bodegas.
 		
 	\end{enumerate}
 
 \end{itemize}
+
+\subsection*{Pista}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{pista}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de pista}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Es un lugar físico perteneciente al Aeropuerto donde despegan o aterrizan Aviones.
+		\item Cada Pista tiene 2 orientaciones.
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Orientación Pista}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{orientación pista}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de orientación pista}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Es la forma de como un avión Despega o Aterriza, con respecto a una pista.
+		\item Tiene un nombre.
+		\item Tiene un RWY NR (Runway Number).
+		\item Tiene un BRG GEO (Geographic Bearing).
+		\item Tiene un BRG MAG (Magnetic Bearing).
+		\item Tiene un LEN RWY (Lenght Runway).
+		\item Tiene un WID RWY (Width Runway).
+		\item Tiene un PCN RSTG.
+		\item Tiene un COORD THR.
+		\item Tiene un ELEV TDZ RWY.
+		\item Tiene un PEND.
+		\item Tiene un SWY.
+		\item Tiene un CWY.
+		\item Tiene un STRIP.
+		\item Tiene un OFZ.
+		\item Tiene un OBS RMK.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Ayuda Navegacional}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Ayuda Navegacional}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de Ayuda Navegacional}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Cualquier dispositivo visual o electrónico, aéreo o en la superficie terrestre el cual provee información posicional y guia punto a punto al piloto y su aeronave.
+		\item Tiene un tipo de dispositivo \{Nondirectional Radio Beacon NDB (antena); Tactical Air Navigation (TACAN); Distance Measuring Equipment (DME); Navigational Aid (NAVAID), GPS\}.
+		\item Tiene una Ubicación Geográfica o GPS.
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Vía Aérea}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Vía Aérea}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de Vía Aérea}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Camino que recorre un avión entre 2 Ayuda Navegacionales.
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Tramo}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Tramo}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de Tramo}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Camino que recorre un avión entre 2 Aeropuertos.
+		\item Esta compuesto de un Aeropuerto de Salida.
+		\item Esta compuesto de un Aeropuerto de Llegada.
+		\item Esta compuesto de Vías Aéreas entre Ayudas Navegacionales.
+		
+	\end{enumerate}
+
+\end{itemize}
+
 
 \subsection*{Ruta}
 
@@ -179,16 +302,271 @@
 		{\textbf{Casa Andrés}}
 	\\
 	\headerrow
-		{\emph{tabla de r}}
-		{\emph{07/03/2013}}
+		{\emph{tabla de ruta}}
+		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item El tramo que recorre un avión desde que Sale (Departure), hasta que Arriba a destino (Arrival).
-		\item Debe tener dos o más aeropuertos.
-		\item Esta compuesto por una ruta aérea preestablecida.
+		\item El tramo definido por la Aerolínea que recorre un avión desde que Sale (Departure), hasta que Arriba en su ultimo destino programado (Arrival).
+		\item Debe tener dos o más aeropuertos, uno de Salida (Departure) y varios de llegada (Arrival).
+		\item Esta compuesto por uno o varios Tramos.
 		
 	\end{enumerate}
 
 \end{itemize}
+
+
+\subsection*{Empleado}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{empleado}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de empleado}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un estado de Empleado.
+		\item Tiene Numero de Empleado de la Empresa.
+		\item Tiene Nombres y Apellidos.
+		\item Tiene un Sexo.
+		\item Tiene un Rut.
+		\item Tiene una Nacionalidad.
+		\item Tiene una Fecha de Nacimiento.
+		\item Tiene una o más Direcciones.
+		\item Tiene uno o más Teléfonos.
+		\item Tiene un Correo Electrónico.
+		\item Tiene una Licencia.
+		\item Tiene un Pasaporte.
+		\item Tiene uno o más Cargos dentro de la Empresa.
+		
+		
+	\end{enumerate}
+
+\end{itemize}
+
+
+\subsection*{Cargo Empresa}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Cargo}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{El titulo de un oficio que desempeña un empleado}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Pasajero}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{pasajero}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de pasajero}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un Estado.
+		\item Tiene Nombre y Apellidos.
+		\item Tiene un Sexo.		
+		\item Tiene Rut.
+		\item Tiene una Nacionalidad.
+		\item Tiene Pasaporte.
+		\item Tiene Equipaje.
+		\item Tiene uno o varios Objetos Especiales o Restringidos (tales como armas, órganos en hielo seco u objetos especiales).
+		\item Tiene una Fecha de Nacimiento.
+		\item Tiene una o más Direcciones.
+		\item Tiene uno o más Teléfonos.
+		\item Tiene un Correo Electrónico.
+		\item Tiene uno o varios Tipo de Pasajero (características orgánicas de la persona, tales como peso o discapacidades especiales).
+		\item Tiene Estadísticas de Cliente (características entregadas por la empresa, tales como puntos o tipos de pasajeros, ya sea frecuente o no).
+		
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Equipaje}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Equipaje}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Carga declarada de un Pasajero}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un Peso.
+		\item Tiene un Volumen.
+		\item Tiene un Destino.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Cargamento}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Cargamento}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Carga de la Empresa o terceros}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un Peso.
+		\item Tiene un Volumen.
+		\item Tiene un Destino.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Tipo de Pasajero}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{tipo de pasajero}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{tabla de tipo de pasajero}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene una Condición (ya sea una discapacidad o una condición de fragilidad, como un embarazo).
+		\item Tiene una Descripción dada por el tipo de condición.
+		\item Puede o no tener asociado uno o más Implemento Extra (ejemplos: silla de ruedas o coche).
+		\item Puede o no contratar Implementos Extra de la Empresa (ejemplos: silla de ruedas).
+	\end{enumerate}
+
+\end{itemize}
+
+
+\subsection*{Implementos Extra}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{implementos extra}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Objetos relacionados a las necesidades especiales de los pasajeros}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un Nombre.
+		\item Tiene un Código.
+		\item Tiene un Peso.
+		
+	\end{enumerate}
+
+\end{itemize}
+
+
+\subsection*{Objetos Especiales o Restringidos}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Objetos Especiales o Restringidos}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Cargas Especiales de los pasajeros que no pasan como equipaje}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Estadísticas de Cliente}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Estadísticas de Cliente}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Tabla de información que le provee la Empresa al Cliente, como seguimiento o regalías}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Licencia}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Licencia}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Documento otorgado por una entidad aeronáutica o similar a un Trabajador}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene una Validez.
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Pasaporte}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Pasaporte}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Documento en que consta la identidad de una persona,necesario para viajar por algunos países}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+
+
 
 \subsection*{Molde(Tabla inexistente)}
 
