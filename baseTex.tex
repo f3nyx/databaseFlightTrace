@@ -118,6 +118,8 @@
 		\item Tiene un tipo de categoría de operación de aeropuerto.
 		\item Tiene una categoría SEI (Servicio de Extinción de Incendios).
 		\item Tiene Coordenadas GPS asociadas.
+		\item Tiene o no combustible disponible.
+		\item tiene o no horario de carga de combustible.
 		\item Tiene Restricciones.
 	\end{enumerate}
 
@@ -137,7 +139,7 @@
 		{\emph{tabla de avión}}
 		{\emph{07/03/2013}}
 	\begin{enumerate}
-		\item Es un medio de transporte que lleva a pasajeros y tripulación, desde un Aeropuerto a otro.
+		\item Es un medio de transporte que lleva a pasajeros y/o carga, desde un Aeropuerto a otro.
 		\item Tiene un estado de disponible o no disponible.
 		\item Tiene un registro (matricula).
 		\item Tiene un versión (ejemplo 3/4).
@@ -165,7 +167,7 @@
 		\item Tiene una Velocidad de Crucero.
 		\item Tiene una o más Cabinas.
 		\item Tiene una o más Bodegas.
-		
+		\item Tiene una Tripulación
 	\end{enumerate}
 
 \end{itemize}
@@ -362,7 +364,77 @@
 		{\emph{El titulo de un oficio que desempeña un empleado}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
+		\item Tiene un Nombre.
+		\item Tiene una Descripción.
+		\item Tiene uno o más Deberes.
+		\item Tiene uno o más Derechos.
+		\item Debe tener un Horario de Vuelo (relacionado con cargos de Vuelo) o un Horario de Trabajo Fijo.
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Horario de Vuelo}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Horario de Vuelo}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Tiempo de trabajo para Empleados que tengan cargos dentro de la Tripulación}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
 		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Horario de Trabajo Fijo}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Horario de Trabajo Fijo}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Tiempo de trabajo para Empleados no que tengan cargos dentro de la Tripulación}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
+\subsection*{Cliente}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Cliente}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Un cliente registrado en nuestro sistema}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene Nombre y Apellidos.
+		\item Tiene un Sexo.		
+		\item Tiene Rut.
+		\item Tiene una Nacionalidad.
+		\item Tiene Pasaporte.
+		\item Tiene una Fecha de Nacimiento.
+		\item Tiene una o más Direcciones.
+		\item Tiene uno o más Teléfonos.
+		\item Tiene un Correo Electrónico.
+		\item Tiene Estadísticas de Cliente (características entregadas por la empresa, tales como puntos, descuentos o tipos de pasajeros, ya sea frecuente o no).
 	\end{enumerate}
 
 \end{itemize}
@@ -378,23 +450,15 @@
 		{\textbf{Casa Andrés}}
 	\\
 	\headerrow
-		{\emph{tabla de pasajero}}
+		{\emph{Característica de un cliente una vez que reserva un espacio en un vuelo}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
+		\item Esta asociado a un solo cliente.
 		\item Tiene un Estado.
-		\item Tiene Nombre y Apellidos.
-		\item Tiene un Sexo.		
-		\item Tiene Rut.
-		\item Tiene una Nacionalidad.
-		\item Tiene Pasaporte.
-		\item Tiene Equipaje.
+		\item Puede o no tener Equipaje.
+		\item Puede o no tener Equipaje de Mano.
 		\item Tiene uno o varios Objetos Especiales o Restringidos (tales como armas, órganos en hielo seco u objetos especiales).
-		\item Tiene una Fecha de Nacimiento.
-		\item Tiene una o más Direcciones.
-		\item Tiene uno o más Teléfonos.
-		\item Tiene un Correo Electrónico.
 		\item Tiene uno o varios Tipo de Pasajero (características orgánicas de la persona, tales como peso o discapacidades especiales).
-		\item Tiene Estadísticas de Cliente (características entregadas por la empresa, tales como puntos o tipos de pasajeros, ya sea frecuente o no).
 		
 	\end{enumerate}
 
@@ -417,6 +481,26 @@
 		\item Tiene un Peso.
 		\item Tiene un Volumen.
 		\item Tiene un Destino.
+	\end{enumerate}
+
+\end{itemize}
+
+
+\subsection*{Equipaje de Mano}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Equipaje de Mano}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Carga declarada de un Pasajero}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item Tiene un Peso.
 	\end{enumerate}
 
 \end{itemize}
@@ -456,10 +540,10 @@
 		{\emph{tabla de tipo de pasajero}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item Tiene una Condición (ya sea una discapacidad o una condición de fragilidad, como un embarazo).
-		\item Tiene una Descripción dada por el tipo de condición.
-		\item Puede o no tener asociado uno o más Implemento Extra (ejemplos: silla de ruedas o coche).
-		\item Puede o no contratar Implementos Extra de la Empresa (ejemplos: silla de ruedas).
+		\item Tiene una Condición (ya sea una discapacidad o una condición de fragilidad, como un embarazo, o traer uno o más bebes).
+		\item Tiene una Descripción dada por el tipo de condición o cada Tipo de Condición.
+		\item Puede o no tener asociado uno o más Implemento Extra (ejemplos: silla de ruedas, silla para bebes o coche)(lo que tienen ellos).
+		\item Puede o no contratar Implementos Extra de la Empresa (ejemplos: silla de ruedas)(lo que tenemos nosotros).
 	\end{enumerate}
 
 \end{itemize}
@@ -558,7 +642,7 @@
 		{\textbf{Casa Andrés}}
 	\\
 	\headerrow
-		{\emph{Documento en que consta la identidad de una persona,necesario para viajar por algunos países}}
+		{\emph{Documento en que consta la identidad de una persona, necesario para viajar por algunos países}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
 		\item ...
@@ -580,7 +664,8 @@
 		{\emph{Empleados asociados a un Vuelo}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item ...
+		\item Tiene un Flight Crew.
+		\item Tiene un Cabin Crew.
 	\end{enumerate}
 
 \end{itemize}
@@ -599,7 +684,8 @@
 		{\emph{Tripulación de Vuelo}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item ...
+		\item Tiene como mínimo un Empleado de Cargo Auxiliar de vuelo por cada grupo de 50 asientos(se espera que por lo menos se tenga el mínimo más uno).
+		\item
 	\end{enumerate}
 
 \end{itemize}
@@ -618,7 +704,9 @@
 		{\emph{Tripulación de Cabina}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item ...
+		\item Tiene un Empleado del Cargo Capitán.
+		\item Tiene un Empleado del Cargo Primer Oficial.
+		\item Puede o no tener un Empleado del Cargo {Ingeniero de vuelo, Mecánico, Encargado de Vuelo, Instructor, (faltan algunos)}(Seleccionar solo uno de estos).
 	\end{enumerate}
 
 \end{itemize}
@@ -656,7 +744,7 @@
 		{\emph{Lugar físico donde un empleado cumple funciones de su trabajo}}
 		{\emph{16/03/2013}}
 	\begin{enumerate}
-		\item ...
+		\item Tiene una Oficina o Base (una de las dos).
 	\end{enumerate}
 
 \end{itemize}
@@ -699,6 +787,25 @@
 
 \end{itemize}
 
+\subsection*{Handling}
+
+\begin{itemize}
+	\parskip=0.1em
+
+	\item
+	\headerrow
+		{\textbf{Handling}}
+		{\textbf{Casa Andrés}}
+	\\
+	\headerrow
+		{\emph{Servicios externos en los aeropuertos en donde la empresa no tiene atención propia}}
+		{\emph{16/03/2013}}
+	\begin{enumerate}
+		\item ...
+	\end{enumerate}
+
+\end{itemize}
+
 \subsection*{Horario de Atención}
 
 \begin{itemize}
@@ -717,26 +824,5 @@
 	\end{enumerate}
 
 \end{itemize}
-
-\subsection*{Molde(Tabla inexistente)}
-
-\begin{itemize}
-	\parskip=0.1em
-
-	\item
-	\headerrow
-		{\textbf{titulo}}
-		{\textbf{Lugar de desarrollo}}
-	\\
-	\headerrow
-		{\emph{eslogan del titulo}}
-		{\emph{Fecha}}
-	\begin{enumerate}
-		\item Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
-		diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-		erat volutpat.
-	\end{enumerate}
-
-\end{itemize}
-
+	
 \end{document}
